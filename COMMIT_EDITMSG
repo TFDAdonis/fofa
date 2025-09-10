@@ -1,0 +1,8 @@
+Improve Google Earth Engine authentication using environment variables
+
+Update app.py to retrieve Google Earth Engine service account credentials from environment variables instead of relying solely on Replit Secrets, improving portability and error messaging for missing credentials.
+
+Replit-Commit-Author: Agent
+Replit-Commit-Session-Id: 3244b4d7-f21a-450c-aadc-e07c3defe1f9
+Replit-Commit-Checkpoint-Type: full_checkpoint
+Replit-Commit-Screenshot-Url: https://storage.googleapis.com/screenshot-production-us-central1/829b5210-8e79-4b82-9291-b935c5c34f64/3244b4d7-f21a-450c-aadc-e07c3defe1f9/Is4A2uj

@@ -1,0 +1,36 @@
+# Optional: GitHub Actions for automated deployment checks
+name: Streamlit App Check
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.11'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r streamlit_requirements.txt
+    
+    - name: Test app syntax
+      run: |
+        python -m py_compile app.py
+        python -m py_compile api.py
+    
+    - name: Test Streamlit app
+      run: |
+        streamlit run app.py --server.headless true &
+        sleep 10
+        pkill -f streamlit
